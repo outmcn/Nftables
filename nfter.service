@@ -1,0 +1,18 @@
+[Unit]
+Description=nfter Domain Monitor Service
+After=network-online.target nftables.service
+Wants=network-online.target nftables.service
+Requires=nftables.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/python3 /usr/local/bin/nfter daemon
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=5
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
