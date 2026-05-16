@@ -9,7 +9,6 @@ sudo nfter
 ```
 ## 三、卸载程序
 
-### 1. 停止并禁用服务
 ```bash
 # 1. 停止并禁用开机自启服务
 sudo systemctl stop nfter
