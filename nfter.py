@@ -616,7 +616,7 @@ def add_port_range_forward():
     save_rules_prompt()
 
 def delete_rule():
-    """彻底删除 (修复版：确保 IP 转发也能物理清理)"""
+    """彻底删除 (确保 IP 转发也能物理清理)"""
     print_header("删除转发规则")
     rules = parse_forward_rules()
     if not rules:
@@ -730,11 +730,7 @@ def show_system_status():
 def show_help():
     print_header("使用帮助")
     print("""
-  本工具用于管理 nftables 端口转发规则。
-
-  【链式转发说明】
-  本版本已修复链式转发问题。masquerade 规则现在会匹配目标 IP，
-  确保 A -> B -> C 的多级转发能正常工作。
+  本工具用于管理 Nftables 端口转发规则。
 
   【功能说明】
   1. 单端口转发：将本地端口转发到目标 IP:端口
@@ -759,7 +755,7 @@ def main_menu():
     while True:
         print()
         print_color("=" * 60, Colors.CYAN)
-        print_color("OutMCN 端口转发管理工具", Colors.CYAN + Colors.BOLD)
+        print_color("端口转发管理工具", Colors.CYAN + Colors.BOLD)
         print_color("支持IPv4/IPv6/域名", Colors.CYAN)
         print_color("=" * 60, Colors.CYAN)
         print()
